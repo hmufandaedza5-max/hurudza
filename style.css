@@ -1,25 +1,19 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f5;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #2e7d32;
+nav a {
   color: white;
-  padding: 20px;
-  text-align: center;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
-section {
-  padding: 20px;
+button {
+  background: #2e7d32;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+input {
+  width: 100%;
+  padding: 8px;
 }
