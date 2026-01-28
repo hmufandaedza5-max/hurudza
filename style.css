@@ -1,22 +1,3 @@
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-button {
-  background: #2e7d32;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-input {
-  width: 100%;
-  padding: 8px;
-}
 /* GLOBAL IMPROVEMENTS */
 body {
   max-width: 900px;
