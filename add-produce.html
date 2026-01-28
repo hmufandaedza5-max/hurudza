@@ -9,35 +9,124 @@
 <body>
 
 <header>
-  <h1>Add Your Produce</h1>
-  <nav>
-    <a href="index.html">Home</a>
-  </nav>
+  <h1>Hurudza – Farmer Submission</h1>
+  <p>Submit your produce for review</p>
 </header>
 
 <section>
   <div class="card">
-    <form>
-      <label>Produce Name<br>
-        <input type="text" required>
-      </label><br><br>
+    <form onsubmit="sendSubmission(); return false;">
 
-      <label>Price<br>
-        <input type="text" required>
-      </label><br><br>
+      <h3>Farmer Details</h3>
 
-      <label>Location<br>
-        <input type="text" required>
-      </label><br><br>
+      <input type="text" id="name" placeholder="Full Name (as per ID)" required>
+      <br><br>
 
-      <label>WhatsApp Number<br>
-        <input type="text" placeholder="2637XXXXXXXX" required>
-      </label><br><br>
+      <input type="text" id="idnumber" placeholder="National ID Number" required>
+      <br><br>
 
-      <button type="submit">Submit</button>
+      <input type="text" id="phone" placeholder="WhatsApp Number (2637XXXXXXXX)" required>
+      <br><br>
+
+      <h3>Produce Details</h3>
+
+      <select id="produce" required onchange="updateQuantityFields()">
+        <option value="">Select Produce</option>
+        <option value="Tomatoes">Tomatoes</option>
+        <option value="Cabbage">Cabbage</option>
+        <option value="Covo">Covo / Leafy Veg</option>
+        <option value="Grains">Grains</option>
+        <option value="Other">Other</option>
+      </select>
+      <br><br>
+
+      <div id="quantityFields"></div>
+
+      <input type="text" id="price" placeholder="Your Asking Price" required>
+      <br><br>
+
+      <input type="text" id="location" placeholder="Location (Village / Town)" required>
+      <br><br>
+
+      <select id="availability" required>
+        <option value="">Availability</option>
+        <option value="Today">Today</option>
+        <option value="2–3 days">2–3 days</option>
+        <option value="1 week+">1 week+</option>
+      </select>
+      <br><br>
+
+      <label>
+        Upload at least 3 photos:
+        <input type="file" multiple required>
+      </label>
+      <br><br>
+
+      <label>
+        <input type="checkbox" required>
+        I confirm the produce belongs to me and information provided is true.
+      </label>
+      <br><br>
+
+      <button type="submit">Submit to Hurudza</button>
+
     </form>
   </div>
 </section>
+
+<script>
+function updateQuantityFields() {
+  const produce = document.getElementById("produce").value;
+  const box = document.getElementById("quantityFields");
+  box.innerHTML = "";
+
+  if (produce === "Tomatoes" || produce === "Other") {
+    box.innerHTML = '<input type="number" id="quantity" placeholder="Quantity (kg)" required><br><br>';
+  }
+
+  if (produce === "Cabbage") {
+    box.innerHTML =
+      '<input type="number" id="quantity" placeholder="Number of heads" required><br><br>' +
+      '<select id="size" required>' +
+      '<option value="">Select size</option>' +
+      '<option>Small</option>' +
+      '<option>Medium</option>' +
+      '<option>Large</option>' +
+      '</select><br><br>';
+  }
+
+  if (produce === "Covo") {
+    box.innerHTML = '<input type="number" id="quantity" placeholder="Number of bundles" required><br><br>';
+  }
+
+  if (produce === "Grains") {
+    box.innerHTML =
+      '<input type="number" id="quantity" placeholder="Quantity" required><br><br>' +
+      '<select id="unit" required>' +
+      '<option value="">Unit</option>' +
+      '<option>20L Buckets</option>' +
+      '<option>Kilograms</option>' +
+      '</select><br><br>';
+  }
+}
+
+function sendSubmission() {
+  const yourNumber = "263787356000"; // 🔴 PUT YOUR NUMBER HERE
+
+  const message =
+    "HURUDZA PRODUCE SUBMISSION%0A%0A" +
+    "Farmer: " + document.getElementById("name").value + "%0A" +
+    "ID: " + document.getElementById("idnumber").value + "%0A" +
+    "Phone: " + document.getElementById("phone").value + "%0A%0A" +
+    "Produce: " + document.getElementById("produce").value + "%0A" +
+    "Quantity: " + document.getElementById("quantity").value + "%0A" +
+    "Price: " + document.getElementById("price").value + "%0A" +
+    "Location: " + document.getElementById("location").value + "%0A" +
+    "Availability: " + document.getElementById("availability").value;
+
+  window.open("https://wa.me/" + yourNumber + "?text=" + message, "_blank");
+}
+</script>
 
 </body>
 </html>
