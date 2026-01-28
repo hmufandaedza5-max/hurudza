@@ -17,3 +17,36 @@ input {
   width: 100%;
   padding: 8px;
 }
+/* GLOBAL IMPROVEMENTS */
+body {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* CARDS HOVER EFFECT */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* BUTTON WOW */
+button, a {
+  border-radius: 6px;
+}
+
+a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #2e7d32;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  background: #1b5e20;
+}
